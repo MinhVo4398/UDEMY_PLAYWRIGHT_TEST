@@ -36,3 +36,15 @@ test("Selectors",async ({page}) => {
     await page.click("//button")
 })
   */   
+
+test("Working with Inputs",async ({page}) => {
+    await page.goto("http://zero.webappsecurity.com/")
+    await page.click("#signin_button")
+
+    await page.fill("#user_login","some username")
+    await page.fill("#user_password", "some password")
+    await page.click("text=Sign in")
+
+    const errorMessage = await page.locator(".alert-error")
+    await expect(errorMessage).toContainText("Login and/or password are wrong.")
+})
