@@ -64,4 +64,15 @@ test.describe("My first test suite", ()=> {
     }) 
 })
   
+test.only("Screenshots",async ({page}) => {
+    // 1. step is load website
+    await page.goto("https://www.example.com/");
+    //2. take screenshot of full page
+    await page.screenshot({path: "screenshot.png", fullPage: true})
+})
 
+test.only("Single element screenshot", async ({page}) => {
+    await page.goto("https://www.example.com/");
+    const element = await page.$("h1")
+    await element?.screenshot({path:"single_element_screenshot.png"}) 
+})
