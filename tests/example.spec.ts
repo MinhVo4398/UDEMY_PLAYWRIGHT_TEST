@@ -37,7 +37,7 @@ test.skip("Selectors",async ({page}) => {
 })
 
 test.describe("My first test suite", ()=> {
-    test("Working with Inputs",async ({page}) => {
+    test("Working with Inputs @myTag",async ({page}) => {
         await page.goto("http://zero.webappsecurity.com/")
         await page.click("#signin_button")
     
@@ -49,7 +49,7 @@ test.describe("My first test suite", ()=> {
         await expect(errorMessage).toContainText("Login and/or password are wrong.")
     })
     
-    test("Assertions",async ({page}) => {
+    test("Assertions @myTag",async ({page}) => {
         await page.goto("https://www.example.com/");
         await expect(page).toHaveURL("https://www.example.com/");   
         await expect(page).toHaveTitle("Example Domain");
@@ -61,8 +61,7 @@ test.describe("My first test suite", ()=> {
     
         const nonExistingElement = await page.locator("h5");
         await expect(nonExistingElement).not.toBeVisible();
-    })
-        
+    }) 
 })
   
 
