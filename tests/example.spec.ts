@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test'
+import { loadingHomePage, assertTitle } from '../helper'
 
 test("Simple basic test", async ({ page }) => {
     //Here goes the test code
@@ -64,7 +65,7 @@ test.describe("My first test suite", () => {
     })
 })
 
-test.describe.only("Hooks", () => {
+test.describe.parallel.only("Hooks", () => {
     test.beforeEach(async ({ page }) => {
         // 1. step is load website
         await page.goto("https://www.example.com/");
@@ -83,4 +84,9 @@ test.describe.only("Hooks", () => {
         const element = await page.$("h1")
         await element?.screenshot({ path: "single_element_screenshot.png" })
     })
+})
+
+test("Custom Helpers", async ({page})=>{
+    await loadingHomePage(page);
+    await assertTitle(page);
 })
