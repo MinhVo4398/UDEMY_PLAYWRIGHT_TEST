@@ -23,3 +23,7 @@ npm run tests:chrome
 ![Alt text](image-4.png)
 
 npm run tests:webkit -- --headed 
+
+
+npm run test:e2e
+![alt text](image-5.png)
