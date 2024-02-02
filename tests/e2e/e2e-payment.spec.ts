@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 
 
-test.describe.only("Filter Transactions", ()=> {
+test.describe("Filter Transactions", ()=> {
     // Login
     test.beforeEach(async ({page}) => {
         await page.goto("http://zero.webappsecurity.com/");
