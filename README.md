@@ -27,3 +27,6 @@ npm run tests:webkit -- --headed
 
 npm run test:e2e
 ![alt text](image-5.png)
+
+
+npm run test:e2e -- --headed 

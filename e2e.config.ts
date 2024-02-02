@@ -4,6 +4,7 @@ const config : PlaywrightTestConfig ={
   timeout: 60000,
   retries: 0,
   testDir:"tests/e2e",
+  //fullyParallel:true,
   use: {
     headless: true,
     trace: 'on-first-retry',
