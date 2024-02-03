@@ -22,7 +22,7 @@ test.describe("Filter Transactions", ()=> {
         if (!await accountSummaryTab.isVisible()) {
             await page.goto('http://zero.webappsecurity.com/bank/account-activity.html');
         };
-        await page.click("#pay_bills_tab");
+      //  await page.click("#pay_bills_tab");
         await page.selectOption("#sp_payee","apple");
         await page.click("#sp_get_payee_details");
         await page.waitForSelector("#sp_payee_details");
