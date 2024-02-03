@@ -1,33 +1,40 @@
-import {test,expect} from '@playwright/test'
+import { test, expect } from "@playwright/test";
+import { HomePage } from "../../page-objects/HomePage";
+import { FeedbackPage } from "../../page-objects/FeedbackPage";
 
-test.describe("Feedback Form", ()=> {
-    test.beforeEach(async ({page})=>{
-        await page.goto("http://zero.webappsecurity.com/index.html");
-        await page.click("#feedback");
-    })
+test.describe.only("Feedback Form", () => {
+  let homePage: HomePage;
+  let feedbackPage: FeedbackPage;
 
-    //Reset feedback form
-    test("Reset feedback form", async ({page}) => {
-        await page.fill("#name","some name");
-        await page.fill("#email","some emai@email.com");
-        await page.fill("#subject","some subject");
-        await page.fill("#comment","some nice comment about the application");
-        await page.click("//input[@name='clear']");
+  test.beforeEach(async ({ page }) => {
+    homePage = new HomePage(page);
+    feedbackPage = new FeedbackPage(page);
 
-        const nameInput = await page.locator("#name");
-        const commentInput = await page.locator("#comment");
-        await expect(nameInput).toBeEmpty();
-        await expect(commentInput).toBeEmpty();
-    })
-    //Submit feedback form
-    test("Submit feedback form", async ({page}) => {
-        await page.fill("#name","some name");
-        await page.fill("#email","some emai@email.com");
-        await page.fill("#subject","some subject");
-        await page.fill("#comment","some nice comment about the application");
-        
-        await page.click("input[value='Send Message']");
-        await page.waitForSelector("#feedback-title"); // if will waitFor element, it visile will pass, not visible will fail
-    })  
+    await homePage.visit();
+    await homePage.clickOnFeedbackLink();
+  });
 
-})
+  //Reset feedback form
+  test("Reset feedback form", async ({ page }) => {
+    await feedbackPage.fillForm(
+      "name",
+      "email@email.com",
+      "subject",
+      "my awesome message"
+    );
+
+    await feedbackPage.resetForm();
+    await feedbackPage.assertReset();
+  });
+  //Submit feedback form
+  test("Submit feedback form", async ({ page }) => {
+    await feedbackPage.fillForm(
+        "name",
+        "email@email.com",
+        "subject",
+        "my awesome message"
+      );
+    await feedbackPage.submitForm();
+    await feedbackPage.feedbackFormSent();
+  });
+});
