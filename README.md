@@ -30,3 +30,7 @@ npm run test:e2e
 
 
 npm run test:e2e -- --headed 
+
+------------
+Visual testing
++ npx playwright test --config=visual.config.ts --project=Chromium
