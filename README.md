@@ -56,3 +56,6 @@ Run Jenkins:
 
 Config jenkins run:
 ![alt text](image-10.png)
+
+Retries test:
++ npx playwright test --config=playwright.config.ts --project=Chromium --retries=3
