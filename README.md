@@ -45,3 +45,8 @@ Config run visual test:
 Config run visual test, update  snapshot
 ![alt text](image-7.png)
 + npm run test:visual:chrome:update
+
+
+Config run API
+![alt text](image-8.png)
++ npm run tests:api

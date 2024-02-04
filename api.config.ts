@@ -1,0 +1,36 @@
+import { PlaywrightTestConfig } from '@playwright/test';
+
+const config : PlaywrightTestConfig ={
+  timeout: 60000,
+  retries: 0,
+  testDir:"tests/api",
+  //fullyParallel:true,
+  use: {
+    headless: true,
+    trace: 'on-first-retry',
+    viewport: {width: 1280, height: 720},
+    actionTimeout: 10000, //10s
+    ignoreHTTPSErrors: true,
+    video: "off",
+    screenshot: "off",
+  },
+
+  /* Configure projects for major browsers */
+  projects: [
+    {
+      name: 'Chromium',
+      use: { browserName: 'chromium' },
+    },
+    {
+      name: 'Firefox',
+      use: { browserName: 'firefox' },
+    },
+    {
+      name: 'Webkit',
+      use: { browserName: 'webkit' },
+    },
+  ],
+};
+
+
+export default config;
