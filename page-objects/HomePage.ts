@@ -5,6 +5,7 @@ export class HomePage{
     readonly signInButton: Locator;
     readonly searchBox: Locator;
     readonly linkFeedback: Locator;
+  
 
     constructor(page: Page) {
         this.page = page;
