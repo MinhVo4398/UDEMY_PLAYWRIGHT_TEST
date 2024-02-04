@@ -15,8 +15,8 @@ export class PaymentPage {
     constructor(page: Page) {
         this.page = page;
         this.payeeSelectBox = page.locator("#sp_payee");
-        this.payeeDetailButton = page.locator("sp_get_payee_details");
-        this.payeeDetail = page.locator("sp_payee_details");
+        this.payeeDetailButton = page.locator("#sp_get_payee_details");
+        this.payeeDetail = page.locator("#sp_payee_details");
         this.accountSelectbox = page.locator("#sp_account");
         this.accmountInput = page.locator("#sp_amount");
         this.dateInput = page.locator("#sp_date");
@@ -26,8 +26,18 @@ export class PaymentPage {
 }
 
         async createPayment() {
-            await this.payeeSelectBox.selectOption('apple');
+            await this.payeeSelectBox.selectOption("apple");
             await this.payeeDetailButton.click();
             await expect(this.payeeDetail).toBeVisible();
+            await this.accountSelectbox.selectOption("6");
+            await this.accmountInput.fill("5000");
+            await this.dateInput.fill("2024-02-14");
+            await this.descriptionInput.fill("some random message");
+            await this.submitPaymentButton.click();
+        }
+
+        async assertSuccessMessage() {
+            await expect(this.message).toBeVisible();
+            await expect(this.message).toContainText("The payment was successfully submitted.");
         }
 }
