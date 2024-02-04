@@ -2,7 +2,7 @@ import {test} from '@playwright/test';
 import { HomePage } from '../../page-objects/HomePage';
 import { LoginPage } from '../../page-objects/LoginPage';
 
-test.describe.only("Login Page Visual Tests", ()=> {
+test.describe("Login Page Visual Tests", ()=> {
     let homePage : HomePage;
     let loginPage : LoginPage;
 

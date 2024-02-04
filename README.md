@@ -34,3 +34,14 @@ npm run test:e2e -- --headed
 ------------
 Visual testing
 + npx playwright test --config=visual.config.ts --project=Chromium
+
++ update snapshot:  npx playwright test --config=visual.config.ts --project=Firefox --update-snapshots
+
+Config run visual test:
+![alt text](image-6.png)
++ npm run test:visual:chrome
++ npm run test:visual:chrome -- --headed
+
+Config run visual test, update  snapshot
+![alt text](image-7.png)
++ npm run test:visual:chrome:update
