@@ -53,3 +53,6 @@ Config run API
 
 Run Jenkins:
 ![alt text](image-9.png)
+
+Config jenkins run:
+![alt text](image-10.png)
