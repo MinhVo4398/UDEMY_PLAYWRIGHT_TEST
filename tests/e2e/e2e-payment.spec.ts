@@ -4,7 +4,7 @@ import { HomePage } from "../../page-objects/HomePage";
 import { PaymentPage } from "../../page-objects/PaymentPage";
 import { Navbar } from "../../page-objects/components/Navbar";
 
-test.describe.only("Filter Transactions", () => {
+test.describe("Filter Transactions", () => {
   let homePage: HomePage;
   let loginPage: LoginPage;
   let paymentPage: PaymentPage;
