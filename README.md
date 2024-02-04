@@ -50,3 +50,6 @@ Config run visual test, update  snapshot
 Config run API
 ![alt text](image-8.png)
 + npm run tests:api
+
+Run Jenkins:
+![alt text](image-9.png)
