@@ -59,3 +59,6 @@ Config jenkins run:
 
 Retries test:
 + npx playwright test --config=playwright.config.ts --project=Chromium --retries=3
+
+Generate PDF File
+ npx playwright pdf https://www.example.com my-file.pdf
