@@ -1,10 +1,17 @@
 import {test, expect} from '@playwright/test';
+import { getRandomNumber, getRandomString } from '../../utils/data-helpers';
 
 test.describe("Tips & Tricks Sections", ()=> {
-    test("TestInfo Object", async ({page}, testInfo) => {
+    test.only("TestInfo Object", async ({page}, testInfo) => {
         await page.goto("https://example.com/");
       //  console.log(testInfo.expectedStatus);
+      let newNumber = await getRandomNumber();
+      let newString = await getRandomString();
+
+      console.log(newNumber);
+      console.log(newString)
     })
+    
 
     test("Test Skip Browser", async ({page, browserName}) => {
         test.skip(browserName === "chromium", "Feature not ready in Chrome browser");
@@ -33,7 +40,7 @@ test.describe("Tips & Tricks Sections", ()=> {
         await page.mouse.up();
     })
 
-    test.only("Multiple Browser Tabs inside 1 Browser", async ({browser}) => {
+    test("Multiple Browser Tabs inside 1 Browser", async ({browser}) => {
         const context = await browser.newContext();
         // Create a new page inside context.
         const page1 = await context.newPage();
